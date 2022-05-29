@@ -1,0 +1,34 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
+<div class="container-flex">
+    <div>
+        <div><img src="{% static 'portfolio/imagem/fp_projt.png' %}" alt=""/></div>
+        <div>Tabuleiro de Xadrez</div>
+    </div>
+    <div>
+        <div><img src="{% static 'portfolio/imagem/lp2_projt.png' %}" alt=""/></div>
+        <div>DeisiGreatGame</div>
+    </div>
+    <div>
+        <div><img src="{% static 'portfolio/imagem/mark_projt.png' %}" alt=""/></div>
+        <div>A utilização das redes sociais como um canal de Marketing </div>
+    </div>
+</div>
+<ul style="margin: 20px">
+    <li><b>Tabuleiro de Xadrez:</b> Feito no âmbito de Fundamentos de programação utilizando a linguagem de programação Kotlin,
+        <br>é um tabuleiro de Xadrez 2D que é mostrado na consola. Este é jogado por duas pessoas e as linhas e colunas
+        podem ser mudadas <br>de acordo com a preferência dos jogadores.</li>
+    <li>
+        <b>DesiGreatGame:</b> Feito na cadeira de Linguagens de programação 2, utilizando Java e Kotlin é um jogo
+        <br>de tabuleiro com o tema de programação e pode ser jogado por 4 jogadores, neste jogo há diversas casas que
+        <br>têm efeitos especiais.
+    </li>
+    <li>
+        <b>A utilização das redes sociais como um canal de Marketing :</b> Feito na cadeira de Marketing,
+        <br>foi pedido um ensaio sobre vários temos da atualidade, este foi o que eu escolhi.
+    </li>
+</ul>
+{% endblock %}
