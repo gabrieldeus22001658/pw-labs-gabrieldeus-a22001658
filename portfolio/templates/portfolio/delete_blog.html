@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+{% block title %} Delete Blog post {% endblock %}
+{% block content %}
+
+<h1 style="display: flex; justify-content: center">Delete: {{blog.titulo}}</h1>
+<div class="container-sm">
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary">Delete</button>
+            <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -20,5 +20,5 @@ app_name = "portfolio"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('portfolio', include('portfolio.urls')),
+    path('portfolio/', include('portfolio.urls')),
 ]

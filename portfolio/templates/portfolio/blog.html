@@ -1,0 +1,11 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    {% for blog in portfolio %}
+
+        <p>{{ blog.titulo }}</p>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'portfolio/base.html' %}
+{% block title %} Quizz {% endblock %}
+
+{% block content %}
+{% load static %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<h1 style="display: flex; justify-content: center">Quizz</h1>
+<hr>
+<div class="container-sm">
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="nome"><b>Nome:</b></label><br>
+            <input type="text" id="nome" name="nome" placeholder="Insira o seu nome" required><br>
+            <br>
+            <br>
+            <ul>
+                <li>
+                    <p style="font-size: 1.2em">Que linguagem é usada no browser para back-end? </p>
+                    <input type="radio" name="back" id="a" value="Java">
+                    <label for="a">Java</label> <br>
+                    <input type="radio" name="back" id="b" value="C">
+                    <label for="b">C</label> <br>
+                    <input type="radio" name="back" id="c" value="Python">
+                    <label for="c">Python</label> <br>
+                    <input type="radio" name="back" id="d" value="Javascript">
+                    <label for="d">Javascript</label> <br>
+                </li>
+                <br>
+                <li>
+                    <p style="font-size: 1.2em">O que quer dizer CSS? </p>
+                    <input type="radio" name="CSS" id="a2" value="Central Style Sheets">
+                    <label for="a2">Central Style Sheets</label> <br>
+                    <input type="radio" name="CSS" id="b2" value="Cascading Style Sheets">
+                    <label for="b2">Cascading Style Sheets</label> <br>
+                    <input type="radio" name="CSS" id="c2" value="Cascading Simple Sheets">
+                    <label for="c2">Cascading Simple Sheets</label> <br>
+                    <input type="radio" name="CSS" id="d2" value="Central Simple Sheets">
+                    <label for="d2">Central Simple Sheets</label> <br>
+                </li>
+                <br>
+                <li>
+                    <p style="font-size: 1.2em">O que quer dizer HTML? </p>
+                    <input type="radio" name="HTML" id="a3" value="Hypertext Markup Language">
+                    <label for="a3">Hypertext Markup Language</label> <br>
+                    <input type="radio" name="HTML" id="b3" value="Hypertext Markdown Language">
+                    <label for="b3">Hypertext Markdown Language</label> <br>
+                    <input type="radio" name="HTML" id="c3" value="Hyperloop Machine Language">
+                    <label for="c3">Hyperloop Machine Language</label> <br>
+                    <input type="radio" name="HTML" id="d3" value="Hyperloop Markup Language">
+                    <label for="d3">Hyperloop Markup Language</label> <br>
+                </li>
+                <br>
+                <li>
+                    <p style="font-size: 1.2em">Qual destas opções é o framework usado pelo Spotify</p>
+                    <input type="radio" name="Spotify" id="a4" value="Ruby on Rails">
+                    <label for="a4">Ruby on Rails</label> <br>
+                    <input type="radio" name="Spotify" id="b4" value="Django">
+                    <label for="b4">Django</label> <br>
+                    <input type="radio" name="Spotify" id="c4" value="jQuery">
+                    <label for="c4">jQuery</label> <br>
+                    <input type="radio" name="Spotify" id="d4" value="React">
+                    <label for="d4">React</label> <br>
+                </li>
+                <br>
+                <li>
+                    <p style="font-size: 1.2em">Qual é a linguagem de programação que Django utiliza?</p>
+                    <input type="radio" name="Django" id="a5" value="Java">
+                    <label for="a5">Java</label> <br>
+                    <input type="radio" name="Django" id="b5" value="C">
+                    <label for="b5">C</label> <br>
+                    <input type="radio" name="Django" id="c5" value="Python">
+                    <label for="c5">Python</label> <br>
+                    <input type="radio" name="Django" id="d5" value="Rust">
+                    <label for="d5">Rust</label> <br>
+                </li>
+
+            </ul>
+            <button type="submit" class="btn btn-primary">
+                Guardar Respostas
+            </button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Ver Classificação
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Resultados</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p style="font-size: 1.2em"> Acertaste em {{ score }}/5 perguntas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="espacamento"></div>
+<div class="outbox">
+    <div class="chart">
+        <canvas id="myChart" width="500" height="500"></canvas>
+    </div>
+</div>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for obj in data %} '{{obj.nome}}', {% endfor %}],
+        datasets: [{
+            label: 'Pontuação',
+            data: [{% for obj in data %} '{{obj.score}}', {% endfor %}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        scales: {
+            x: {
+                min: 0,
+                max: 5,
+                ticks: {
+                    stepSize: 1
+                }
+            },
+            y: {
+                grid: {
+                    offset: false,
+                },
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+<div class="espacamento"></div>
+{% endblock %}
