@@ -1,14 +1,17 @@
 {% extends 'portfolio/base.html' %}
-{% block title %} Delete Blog post {% endblock %}
+{% block title %} Apagar post {% endblock %}
 {% block content %}
-
-<h1 style="display: flex; justify-content: center">Delete: {{blog.titulo}}</h1>
-<div class="container-sm">
+<br>
+<h1 style="display: flex; justify-content: center">Apagar: {{blog.titulo}}</h1>
+<hr>
+<div class="container-sm" style="text-align: center">
+    <br>
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn btn-secondary">Delete</button>
-            <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Cancel</a>
+            <p style="font-size: 1.3em">Tens a certeza que queres apagar este post?</p>
+            <button type="submit" class="btn btn-danger">Apagar</button>
+            <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </div>

@@ -1,15 +1,16 @@
 {% extends 'portfolio/base.html' %}
-{% block title %} Edit post {% endblock %}
+{% block title %} Editar o post {% endblock %}
 {% block content %}
-
-<h1 style="display: flex; justify-content: center">Edit a Post</h1>
+<br>
+<h1 style="display: flex; justify-content: center">Editar o Post</h1>
+<hr>
 <div class="container-sm">
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p}}
-            <button type="submit" class="btn btn-secondary">Update</button>
-            <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+            <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </div>

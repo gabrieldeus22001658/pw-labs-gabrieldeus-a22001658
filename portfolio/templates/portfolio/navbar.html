@@ -1,0 +1,19 @@
+ <nav class="letra">
+            <div class="menu">
+                <div class="estilo">
+                    <ul>
+                        <li onclick="location.href = '{% url 'portfolio:home' %}'">
+                            <a href="location.href = '{% url 'portfolio:home' %}'">Home</a>
+                        </li>
+                        <li onclick="location.href = '{% url 'portfolio:home' %}'"><a href="{% url 'portfolio:home' %}">Sobre mim</a></li>
+                        <li onclick="location.href = '{% url 'portfolio:home' %}'"><a href="{% url 'portfolio:home' %}">Sobre a Web</a></li>
+                        <li onclick="location.href ='{% url 'portfolio:home' %}'"><a href="{% url 'portfolio:home' %}">Contacto</a></li>
+                        {% if user.is_authenticated %}
+                        <li onclick="location.href = '{% url 'portfolio:logout' %}'"><a href="{% url 'portfolio:logout' %}">Logout</a></li>
+                        {% else %}
+                        <li onclick="location.href = '{% url 'portfolio:login' %}'"><a href="{% url 'portfolio:login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>

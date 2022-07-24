@@ -2,15 +2,20 @@
 
 {% block content %}
 
-<h1>Blog</h1>
-<ul>
-{% for blog in object_list %}
-   <li><a href="{% url 'portfolio:blog-details' blog.pk %}">{{ blog.titulo }}</a>
-       - {{ blog.autor }} -
-       <small><a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a></small>
-       <small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a></small><br/>
-    {{ blog.descricao }} </li>
-{% endfor %}
-</ul>
-
+<div class="container-md">
+    <br>
+    <br>
+    <h1>Blog</h1>
+    <hr>
+    <ul>
+        {% for blog in object_list %}
+        <li style="font-size: 1.2em"><a href="{% url 'portfolio:blog-details' blog.pk %}">{{ blog.titulo }}</a>
+            - {{ blog.autor }} -
+            <small><a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a></small>
+            <small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a></small><br/>
+            {{ blog.descricao }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

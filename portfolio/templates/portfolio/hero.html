@@ -8,8 +8,12 @@
     <title>Páginas Inicial</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'portfolio/css/hero.css' %}"/>
+    <link rel="stylesheet" href="{% static 'portfolio/css/navbar.css' %}"/>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+
+
     </style>
 </head>
 <body>
@@ -24,66 +28,71 @@
             <p>Feito por: Gabriel Deus</p>
         </div>
         <nav>
-            <div class="menu">
-                <div class="estilo">
-                    <ul>
-                        <li>
-                            <a href="portfolio:home">Home</a>
-                        </li>
-                        <li><a href="about.html">Sobre mim</a></li>
-                        <li><a href="about.html">Sobre a Web</a></li>
-                        <li><a href="about.html">Contacto</a></li>
-                        <li><a href="about.html">Login</a></li>
-                    </ul>
-                </div>
-            </div>
+            {% include 'portfolio/navbar.html' %}
         </nav>
     </header>
 </div>
 </div>
-  <section class="section section-light">
+<section class="section section-light">
     <h2>Section One</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. Distinctio provident dolorem modi cumque illo enim quidem tempora deserunt nostrum voluptate labore repellat quisquam quasi cum suscipit dolore ab consequuntur, ad porro earum temporibus. Laborum ad temporibus ex, omnis!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi,
+        fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum
+        praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates
+        inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat
+        placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus
+        ratione in. Distinctio provident dolorem modi cumque illo enim quidem tempora deserunt nostrum voluptate labore
+        repellat quisquam quasi cum suscipit dolore ab consequuntur, ad porro earum temporibus. Laborum ad temporibus
+        ex, omnis!
     </p>
-  </section>
+</section>
 
-  <div class="pimg2">
+<div class="pimg2">
     <div class="ptext">
       <span class="border trans">
         <i>"The journey of a thousand miles begins with one step."</i>
       </span>
     </div>
-  </div>
+</div>
 
-  <section class="section section-dark">
+<section class="section section-dark">
     <h2>Section Two</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi,
+        fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum
+        praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates
+        inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat
+        placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus
+        ratione in.
     </p>
-  </section>
+</section>
 
-  <div class="pimg3">
+<div class="pimg3">
     <div class="ptext">
       <span class="border trans">
        <i>"Give a man a fish and you feed him for a day; <br>teach a man to fish and you feed him for a lifetime."</i>
       </span>
     </div>
-  </div>
+</div>
 
-  <section class="section section-dark">
+<section class="section section-dark">
     <h2>Section Three</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi,
+        fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum
+        praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates
+        inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat
+        placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus
+        ratione in.
     </p>
-  </section>
+</section>
 
-  <div class="pimg1">
+<div class="pimg1">
     <div class="ptext">
       <span class="border">
         Contact Me
       </span>
     </div>
-  </div>
+</div>
 </body>
 </html>

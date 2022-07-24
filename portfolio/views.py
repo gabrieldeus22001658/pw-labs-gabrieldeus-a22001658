@@ -1,11 +1,33 @@
 import datetime
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Blog, PontuacaoQuizz
 from .forms import BlogForm, EditBlogForm
 from django.urls import reverse_lazy
+from django.contrib.auth import authenticate, logout, login
+from django.contrib import messages
+
+
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('portfolio:home')
+        else:
+            messages.success(request, "Login Inválido, tente outra vez")
+            return redirect('portfolio:login')
+    else:
+        return render(request, 'portfolio/login.html', {})
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('portfolio:home')
 
 
 def index_view(request):
@@ -45,7 +67,7 @@ def lic_page_view(request):
     return render(request, 'portfolio/licenciatura.html')
 
 
-class HomeView(ListView):
+class BlogView(ListView):
     model = Blog
     template_name = 'portfolio/home.html'
 

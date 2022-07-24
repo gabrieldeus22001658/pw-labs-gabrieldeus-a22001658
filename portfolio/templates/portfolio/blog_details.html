@@ -4,14 +4,17 @@
 {{blog.titulo}}
 {% endblock %}
 {% block content %}
-<h1>{{blog.titulo}}</h1>
-<small><b>Autor:</b> {{ blog.autor}} <a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a> </small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a> </small><br>
-<hr>
-<br>
-{{ blog.descricao }}
+<div class="container-md">
+    <br>
+    <h1>{{blog.titulo}}</h1>
+    <small><b>Autor:</b> {{ blog.autor}} <a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a> </small><a
+        href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a> </small><br>
+    <hr>
+    <br>
+    {{ blog.descricao }}
 
 
-<br><br>
-<a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Back</a>
-
+    <br><br>
+    <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Back</a>
+</div>
 {% endblock %}
