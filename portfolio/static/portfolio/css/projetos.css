@@ -1,53 +1,104 @@
-* {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+.container-masterC {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 5vh;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+    font-family: "Poppins", sans-serif;
 }
 
-body {
+.grid {
+  display: grid;
+  width: 60em;
+  grid-gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  align-items: start;
+}
+
+.grid-item {
+  margin-top: 8vh;
+  margin-bottom: 17vh;
+  background-color: #fff;
+  border-radius: 1.7rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.grid-item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+  display: block;
   width: 100%;
-  height: 100vh;
-  position: absolute;
-  background-color: rgba(102, 120, 129, 0.247);
+  height: 20rem;
 }
 
-body {
-  scroll-behavior: smooth;
+.card-content {
+  padding: 3rem;
 }
 
-.container-flex {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: space-around;
-  padding: 130px 10px 10px 10px;
-  margin: 100px;
+.card-header {
+  font-size: 1.7em;
+  font-weight: 500;
+  color: #0d0d0d;
+  margin-bottom: 1.5rem;
 }
 
-.container-flex > div {
-  width: 300px;
-  display: flex;
-  justify-content: space-around;
-  box-shadow: 5px 5px 15px black;
-  margin: 10px;
-  border-radius: 20px;
+.card-text {
+  font-size: 1.1em;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+  color: #3d3d3d;
+  margin-bottom: 2.5rem;
 }
 
-img {
-    height: 190px;
-    width: 200px;
-}
-
-.container-flex img {
-  border-radius: 20px 0 0 20px;
-  height: 100%;
+.card-btn {
+  display: block;
   width: 100%;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #3363ff;
+  background-color: #d8e0fd;
+  border: none;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
 }
 
-.container-flex div div:last-child {
-  width: 120px;
-  background-color: rgba(195, 225, 250, 0.959);
-  padding: 10px;
-  border-radius: 0 20px 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card-btn span {
+  margin-left: 1rem;
+  transition: 0.2s;
+}
+
+.card-btn:hover,
+.card-btn:active {
+  background-color: #c2cffc;
+}
+
+.card-btn:hover span,
+.card-btn:active span {
+  margin-left: 1.5rem;
+}
+
+@media only screen and (max-width: 60em) {
+  .container-masterC {
+    padding: 3rem;
+  }
+
+  .grid {
+    grid-gap: 3rem;
+  }
 }

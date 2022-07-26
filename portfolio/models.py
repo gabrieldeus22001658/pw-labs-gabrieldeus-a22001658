@@ -3,39 +3,13 @@ from django.db import models
 from django.urls import reverse
 
 
-class Competencia(models.Model):
-    competencia = models.CharField(max_length=50)
-    descricao = models.CharField(max_length=200)
-
-    def __str__(self):
-        return f"{self.competencia}"
-
-
 class Pessoa(models.Model):
     nome = models.CharField(max_length=64)
-    linkLusofona = models.URLField(max_length=200)
-    linkLinkedin = models.URLField(max_length=200)
-
-    # linkPortfolio = models.URLField(max_length=200)
+    linkLusofona = models.URLField(blank=True, null=True, max_length=200)
+    linkLinkedin = models.URLField(blank=True, null=True, max_length=200)
 
     def __str__(self):
         return f"{self.nome}"
-
-
-class Projeto(models.Model):
-    titulo = models.CharField(max_length=64)
-    descricao = models.CharField(max_length=500)
-    imagem = models.ImageField()
-    ano_realizado = models.IntegerField()
-    participantes = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
-    github = models.URLField(max_length=200)
-    linkYt = models.URLField(max_length=200)
-    tecnologias = models.CharField(max_length=64)
-    competencias = models.ForeignKey(Competencia, on_delete=models.CASCADE)
-    projeto = models.CharField(max_length=64)
-
-    def __str__(self):
-        return f"{self.titulo}"
 
 
 class Cadeira(models.Model):
@@ -44,15 +18,40 @@ class Cadeira(models.Model):
     semestre = models.IntegerField()
     ects = models.IntegerField()
     ano_letivo = models.CharField(max_length=10)
-    topicos = models.CharField(max_length=64)
+    topicos = models.CharField(max_length=300)
     ranking = models.IntegerField()
     pagina = models.URLField(max_length=200)
     professores = models.ForeignKey(Pessoa, null=False, on_delete=models.CASCADE, related_name='prof')
-    projetos = models.ForeignKey(Projeto, blank=True, null=True, on_delete=models.CASCADE)
     professorAuxiliar = models.ForeignKey(Pessoa, blank=True, null=True, on_delete=models.CASCADE, related_name='prof2')
 
     def __str__(self):
         return f"{self.nome}"
+
+
+class Competencia(models.Model):
+    nome = models.CharField(max_length=50)
+    descricao = models.CharField(max_length=200)
+    nivel = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.nome}"
+
+
+class Projeto(models.Model):
+    titulo = models.CharField(max_length=64)
+    descricao = models.CharField(max_length=500)
+    imagem = models.ImageField(null=True, blank=True, upload_to="imagem/")
+    ano_realizado = models.IntegerField()
+    participante1 = models.ForeignKey(Pessoa, null=True, on_delete=models.CASCADE, related_name="p1")
+    participante2 = models.ForeignKey(Pessoa, blank=True, null=True, on_delete=models.CASCADE, related_name="p2")
+    github = models.URLField(blank=True, null=True, max_length=200)
+    linkYt = models.URLField(blank=True, null=True, max_length=200)
+    tecnologias = models.CharField(max_length=100)
+    competencias = models.ForeignKey(Competencia, on_delete=models.CASCADE)
+    cadeira = models.ForeignKey(Cadeira, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.titulo}"
 
 
 class Blog(models.Model):

@@ -1,17 +1,20 @@
-
-
-.espacamento {
-  background-color: white;
-  height: 10vh;
-  max-width: 100%;
+* {
+  font-family: "Prompt", sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 .formato {
     max-width: 100vh;
 }
 
-body {
-    margin: 15px 15px 30px 5vw;
+body, html{
+  height:100%;
+  margin:0;
+  font-size:16px;
+  font-weight:400;
+  color:#666;
 }
 
 .chart {
@@ -22,3 +25,4 @@ body {
 .outbox {
     text-align: center;
 }
+

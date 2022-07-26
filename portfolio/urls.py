@@ -1,14 +1,14 @@
 from django.urls import path
 from . import views
-from .views import BlogView, BlogDetail, AddBlog, UpdateBlog, DeleteBlog, login_user, logout_user
+from .views import BlogView, BlogDetail, AddBlog, UpdateBlog, DeleteBlog, login_user, logout_user, lista_cadeiras, lista_projetos
 
 app_name = "portfolio"
 
 urlpatterns = [
     path('home/', views.index_view, name='home'),
-    path('licenciatura/', views.lic_page_view, name='licenciatura'),
+    path('licenciatura/', views.lista_cadeiras, name='licenciatura'),
     path('formação/', views.formac_page_view, name='formação'),
-    path('projetos/', views.proj_page_view, name='projetos'),
+    path('projetos/', views.lista_projetos, name='projetos'),
     path('apresentação/', views.apr_page_view, name='apresentação'),
     path('competencias/', views.comp_page_view, name='competencias'),
     path('blog/', BlogView.as_view(), name='blog'),

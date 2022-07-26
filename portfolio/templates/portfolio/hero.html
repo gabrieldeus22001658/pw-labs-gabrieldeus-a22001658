@@ -7,92 +7,79 @@
     <meta name="autor" content="Gabriel Deus"/>
     <title>Páginas Inicial</title>
     {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'portfolio/css/hero.css' %}"/>
-    <link rel="stylesheet" href="{% static 'portfolio/css/navbar.css' %}"/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
-
-
-
     </style>
 </head>
 <body>
 <div class="hero">
     <header>
-        <video autoplay loop muted>
-            <source src="https://assets.mixkit.co/videos/download/mixkit-exploding-ink-underwater-105.mp4"
-                    type="video/mp4"></source>
-        </video>
-        <div class="content">
-            <h2>Portfolio</h2>
-            <p>Feito por: Gabriel Deus</p>
-        </div>
         <nav>
             {% include 'portfolio/navbar.html' %}
         </nav>
     </header>
-</div>
+    <video autoplay loop muted>
+            <source src="https://assets.mixkit.co/videos/download/mixkit-exploding-ink-underwater-105.mp4"
+                    type="video/mp4"></source>
+        </video>
+        <div class="content">
+            <h2><b>Portfolio</b></h2>
+            <p>Gabriel Deus <a class="link" href="https://github.com/gabrieldeus22001658" target="_blank"><i class="fa fa-github"> </i></a> <a class="link" href="https://www.linkedin.com/in/gabrieldeus02/" target="_blank"><i class='fa fa-linkedin-square'> </i></a></p>
+        </div>
 </div>
 <section class="section section-light">
-    <h2>Section One</h2>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi,
-        fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum
-        praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates
-        inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat
-        placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus
-        ratione in. Distinctio provident dolorem modi cumque illo enim quidem tempora deserunt nostrum voluptate labore
-        repellat quisquam quasi cum suscipit dolore ab consequuntur, ad porro earum temporibus. Laborum ad temporibus
-        ex, omnis!
+    <h2>Porquê Informática de Gestão?</h2>
+    <p style="font-size: 1.2em">
+       A tecnologia está cada vez mais presente nas atividades do nosso dia a dia, e desde miúdo que me fascino por esta temática.
+        E o facto de este curso combinar um mundo que gosto e outro que me dá curiosidade em aprender, era díficil dizer que não a esta oportunidade.
     </p>
 </section>
 
 <div class="pimg2">
     <div class="ptext">
-      <span class="border trans">
+      <span class="borderS trans">
         <i>"The journey of a thousand miles begins with one step."</i>
       </span>
     </div>
 </div>
 
 <section class="section section-dark">
-    <h2>Section Two</h2>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi,
-        fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum
-        praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates
-        inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat
-        placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus
-        ratione in.
+    <h2>O que mais tenho gostado no curso?</h2>
+    <p style="font-size: 1.2em">
+        De conhecer o por de trás das tecnologias que usamos no dia a dia e ter a esperança de que um dia possa recriar tal feito.
+        E também de começar a entender a parte financeira do mundo no qual me insiro.
     </p>
 </section>
 
 <div class="pimg3">
     <div class="ptext">
-      <span class="border trans">
+      <span class="borderS trans">
        <i>"Give a man a fish and you feed him for a day; <br>teach a man to fish and you feed him for a lifetime."</i>
       </span>
     </div>
 </div>
 
 <section class="section section-dark">
-    <h2>Section Three</h2>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi,
-        fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum
-        praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates
-        inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat
-        placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus
-        ratione in.
+    <h2>O que planeio fazer quando acabar o curso?</h2>
+    <p style="font-size: 1.2em">
+        Estou sempre aberto a novas ideias. Mas a que me trás mais conforto de momento, é estar inserido numa empresa e ser a ponte de conexão destes dois mundos completamente diferentes, Informática e Gestão.
     </p>
 </section>
 
 <div class="pimg1">
-    <div class="ptext">
-      <span class="border">
+    <div class="ptext" onclick="location.href='#';" style="cursor: pointer;">
+      <span class="borderS2" style="border-radius: 0.9rem">
         Contact Me
       </span>
     </div>
 </div>
+    <footer>
+        {% include 'portfolio/footer.html' %}
+    </footer>
 </body>
 </html>

@@ -1,12 +1,6 @@
 * {
-  box-sizing: border-box;
-}
-
-* {
   font-family: "Prompt", sans-serif;
-}
-
-* {
+  box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
@@ -14,16 +8,13 @@
 .hero {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  mix-blend-mode: overlay;
   background-attachment: fixed;
 }
 
 .hero .content2 {
-  position: absolute;
   bottom: 100px;
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5);
@@ -128,18 +119,28 @@ body, html{
   text-transform:uppercase;
 }
 
-.ptext .border{
+.ptext .borderS{
   background-color:#111;
   color:#fff;
   padding:20px;
 }
 
-.ptext .border.trans{
+.ptext .borderS.trans{
   background-color:transparent;
 }
 
 .quotes {
  font-size: 0.7em;
+}
+
+.borderS2 {
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+}
+.borderS2:hover {
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 @media(max-width:568px){

@@ -3,11 +3,15 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Blog, PontuacaoQuizz
+from .models import Blog, PontuacaoQuizz, Pessoa, Projeto, Competencia, Cadeira
 from .forms import BlogForm, EditBlogForm
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
+
+
+def resolution_path(instance, filename):
+    return f'users/{instance.id}/'
 
 
 def login_user(request):
@@ -55,16 +59,8 @@ def formac_page_view(request):
     return render(request, 'portfolio/formação.html')
 
 
-def proj_page_view(request):
-    return render(request, 'portfolio/projetos.html')
-
-
 def apr_page_view(request):
     return render(request, 'portfolio/apresentação.html')
-
-
-def lic_page_view(request):
-    return render(request, 'portfolio/licenciatura.html')
 
 
 class BlogView(ListView):
@@ -134,3 +130,18 @@ def desenha_grafico_resultados(request):
         scores.append(r.score)
     nomes.reverse()
     scores.reverse()
+
+
+def lista_cadeiras(request):
+    context = {
+        'cadeiras': Cadeira.objects.all(),
+        'range': range(1, 6)
+    }
+    return render(request, 'portfolio/licenciatura.html', context)
+
+
+def lista_projetos(request):
+    context = {
+        'projetos': Projeto.objects.all(),
+    }
+    return render(request, 'portfolio/projetos.html', context)
