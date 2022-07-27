@@ -1,21 +1,23 @@
 {% extends 'portfolio/base.html' %}
-
+{% block title %} Blog{% endblock %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
 
-<div class="container-md">
-    <br>
-    <br>
-    <h1>Blog</h1>
-    <hr>
-    <ul>
+<div class="container-masterC" style="text-align: center; padding-bottom: 3vh">
+    <div class="container-cadeira" style="flex-flow: column wrap">
+        <h1 style="text-align: center; color: white; margin-top: 5vh">Blog - <a
+                href="{% url 'portfolio:add_blog' %}"><small>(add-post)</small></a></h1>
         {% for blog in object_list %}
-        <li style="font-size: 1.2em"><a href="{% url 'portfolio:blog-details' blog.pk %}">{{ blog.titulo }}</a>
-            - {{ blog.autor }} -
-            <small><a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a></small>
-            <small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a></small><br/>
-            {{ blog.descricao }}
-        </li>
+        <div>
+            <p class="nome">{{ blog.titulo }}</p>
+            <hr>
+            <p class="ano"><b>Autor: </b>{{ blog.autor }} -
+                <small><a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a></small>
+                <small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a></small><br/></p>
+            <p class="topicos">{{blog.descricao}}</p>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
 {% endblock %}

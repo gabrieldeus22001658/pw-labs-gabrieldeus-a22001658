@@ -24,7 +24,7 @@
     </style>
 
 
-    <title>{% block title %}Blog{% endblock %}</title>
+    <title>{% block title %}Base{% endblock %}</title>
 </head>
 <body style="background: #757F9A;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
@@ -37,7 +37,7 @@ background: linear-gradient(to left, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Fi
         {% include 'portfolio/navbar.html' %}
     </nav>
 </header>
-<div class="container1">
+<div>
     {% block content %}
 
     {% endblock %}

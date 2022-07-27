@@ -1,0 +1,246 @@
+.container-masterA {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 5vh;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.perfil {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+    padding-top: 15vh;
+}
+
+.eu  {
+    border-radius: 1.3em;
+    height: 45vh;
+}
+
+.apresentar {
+    color: white;
+    font-size: 1em;
+    float: left;
+    word-wrap: break-word;
+    width: 8vw;
+    margin-left: 2vw;
+    letter-spacing: 0.1em;
+    max-height: 45;
+    overflow: hidden;
+}
+
+
+.texto1 {
+    font-size: 2em;
+    width: auto;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hobbies {
+    width: 100%;
+    height: 45vh;
+    padding-top: 15vh;
+    font-family: "Poppins", sans-serif;
+}
+
+.grid1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "gymI menteI conviverI"
+    "gym mente conviver";
+    text-align: center;
+    align-self: center;
+}
+
+.hobbies img {
+    border-radius: 1rem;
+    width: 100px;
+    height: 100px;
+}
+
+.hobbies p {
+    padding-top: 1vh;
+    color: white;
+    font-size: 1.4em;
+}
+
+.gymI {
+    grid-area: "gymI";
+}
+
+.menteI {
+    grid-area: "menteI";
+}
+
+.conviverI {
+    grid-area: "conviverI";
+}
+
+.gymT {
+    grid-area: "gym";
+}
+
+.menteT {
+    grid-area: "mente";
+}
+
+.conviverT {
+    grid-area: "conviver";
+}
+
+.containerComp {
+    width: 35vw;
+    height: auto;
+    margin: 50px auto 0;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    border-radius : 1.2rem;
+}
+
+.compLi {
+    position: relative;
+    list-style: none;
+    margin: 50px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.compLi:before {
+    content: "";
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: rgba(54, 126, 223, .5);
+    border-radius: 1000px;
+}
+
+.compLi:after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 0;
+    height: 15px;
+    background-color: rgba(54, 126, 223, 1);
+    border-radius: 1000px;
+}
+
+.timeline-section{
+	background-color: #24292d;
+	min-height: 100vh;
+	padding: 100px 15px;
+	z-index: 100;
+}
+.timeline-items{
+	max-width: 1000px;
+	margin:auto;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+}
+.timeline-items::before{
+	content: '';
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	background-color: #2f363e;
+	left: calc(50% - 1px);
+}
+.timeline-item{
+	margin-bottom: 40px;
+	width: 100%;
+	position: relative;
+}
+.timeline-item:last-child{
+	margin-bottom: 0;
+}
+.timeline-item:nth-child(odd){
+    padding-right: calc(50% + 30px);
+	text-align: right;
+}
+.timeline-item:nth-child(even){
+    padding-left: calc(50% + 30px);
+}
+.timeline-dot{
+	height: 16px;
+	width: 16px;
+	background-color: #eaa023;
+	position: absolute;
+	left: calc(50% - 8px);
+	border-radius: 50%;
+	top:10px;
+}
+.timeline-date{
+	font-size: 18px;
+	color: #eaa023;
+	margin:6px 0 15px;
+}
+.timeline-content{
+    background-color: #2f363e;
+	padding: 30px;
+	border-radius: 5px;
+}
+.timeline-content h3{
+    font-size: 20px;
+	color: #FFF;
+	margin:0 0 10px;
+	text-transform: capitalize;
+	font-weight: 500;
+}
+.timeline-content p{
+    color: #c8c8c8;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 22px;
+}
+
+@media(max-width: 767px){
+	.timeline-items::before{
+		left: 7px;
+	}
+	.timeline-item:nth-child(odd){
+		padding-right: 0;
+		text-align: left;
+	}
+	.timeline-item:nth-child(odd),
+	.timeline-item:nth-child(even){
+		padding-left: 37px;
+	}
+	.timeline-dot{
+		left:0;
+	}
+}
+
+@media only screen and (max-width: 60em) {
+  .containerComp {
+    width: 60vw;
+  }
+
+  .texto1 {
+    font-size: 1.3em;
+  }
+  .apresentar {
+    word-wrap: normal;
+    font-size: 0.8em;
+    width: 35vw;
+  }
+}

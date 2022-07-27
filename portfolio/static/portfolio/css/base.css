@@ -5,6 +5,38 @@
   padding: 0px;
 }
 
+.container-masterC {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+}
+
+.projetosH1 {
+    font-weight: bold;
+    color: white;
+    margin: auto;
+    padding-top: 4rem;
+}
+
+.blogD {
+    font-size: 1.2em;
+    color: white;
+}
+
+.corConfig {
+    margin-top: 5vh;
+    padding-bottom: 5vh;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .formato {
     max-width: 100vh;
 }
@@ -25,4 +57,3 @@ body, html{
 .outbox {
     text-align: center;
 }
-

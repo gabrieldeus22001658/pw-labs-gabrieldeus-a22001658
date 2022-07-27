@@ -1,11 +1,11 @@
 {% extends 'portfolio/base.html' %}
 {% block title %} Novo post {% endblock %}
 {% block content %}
-<br>
-<h1 style="display: flex; justify-content: center">Novo post</h1>
-<hr>
-<div class="container-sm">
-    <div class="form-group">
+<div class="corConfig" style="padding-bottom: 5vh">
+  <h1 class="projetosH1">Adicionar Post</h1>
+</div>
+<div class="container-masterC" style="text-align: center">
+    <div class="form-group" style="color: white; font-size: 1.3em; width: 60vw; margin-left: 20vw">
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p}}

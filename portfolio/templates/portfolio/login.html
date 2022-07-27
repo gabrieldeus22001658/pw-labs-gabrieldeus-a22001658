@@ -5,24 +5,23 @@ Login
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid" style="text-align: center;  ">
-    <br>
-    <br>
-    <h1 style="margin-top: 5vh; position: relative;">Faça o seu Login</h1>
-    <br>
-    <hr>
+
+<div class="corConfig">
+  <h1 class="projetosH1">Faça o seu Login</h1>
+</div>
+<div class="container-masterC" style="text-align: center;  ">
     <div class="form-group">
         <form method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <label class="form-label">
-                    <p style="font-size: 1.1em">Username</p>
+                    <p style="font-size: 1.1em; color: white">Username</p>
                 </label>
                 <input type="text" class="form-control" name="username" style="width: 10vw; margin: auto">
             </div>
             <div class="mb-3">
                 <label class="form-label">
-                    <p style="font-size: 1.1em">Password</p>
+                    <p style="font-size: 1.1em; color: white">Password</p>
                 </label>
                 <input type="password" class="form-control" name="password" style="width: 10vw; margin: auto">
             </div>

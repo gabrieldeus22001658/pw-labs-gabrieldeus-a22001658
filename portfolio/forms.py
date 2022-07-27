@@ -8,8 +8,8 @@ class BlogForm(forms.ModelForm):
         model = Blog
         fields = '__all__'
         widgets = {
+            'autor': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escreva o seu nome...'}),
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escreva um título...'}),
-            'autor': forms.Select(attrs={'class': 'form-control'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Escreva aqui...'}),
         }
 
@@ -24,7 +24,6 @@ class EditBlogForm(forms.ModelForm):
         fields = ('titulo', 'descricao')
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escreva um título...'}),
-            # 'autor': forms.Select(attrs={'class': 'form-control'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Escreva aqui...'}),
         }
 

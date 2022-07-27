@@ -1,9 +1,6 @@
-import datetime
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Blog, PontuacaoQuizz, Pessoa, Projeto, Competencia, Cadeira
+from .models import Blog, PontuacaoQuizz, Pessoa, Projeto, Competencia, Cadeira, TFC, Noticia
 from .forms import BlogForm, EditBlogForm
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, logout, login
@@ -38,31 +35,6 @@ def index_view(request):
     return render(request, 'portfolio/hero.html')
 
 
-def home_page_view(request):
-    agora = datetime.datetime.now()
-    local = 'Lisboa'
-    topicos = ['HTML', 'CSS', 'Python', 'Django', 'JavaScript']
-
-    context = {
-        'hora': agora.hour,
-        'local': local,
-        'topicos': topicos,
-    }
-    return render(request, 'portfolio/home.html', context)
-
-
-def comp_page_view(request):
-    return render(request, 'portfolio/competencias.html')
-
-
-def formac_page_view(request):
-    return render(request, 'portfolio/formação.html')
-
-
-def apr_page_view(request):
-    return render(request, 'portfolio/apresentação.html')
-
-
 class BlogView(ListView):
     model = Blog
     template_name = 'portfolio/home.html'
@@ -83,13 +55,12 @@ class UpdateBlog(UpdateView):
     model = Blog
     form_class = EditBlogForm
     template_name = 'portfolio/edit_blog.html'
-    # fields = ['titulo', 'descricao']
 
 
 class DeleteBlog(DeleteView):
     model = Blog
     template_name = 'portfolio/delete_blog.html'
-    success_url = reverse_lazy('portfolio:home')
+    success_url = reverse_lazy('portfolio:blog')
 
 
 def pontuacao_quizz(request):
@@ -145,3 +116,24 @@ def lista_projetos(request):
         'projetos': Projeto.objects.all(),
     }
     return render(request, 'portfolio/projetos.html', context)
+
+
+def apresentacao_view(request):
+    context = {
+        'competencias': Competencia.objects.all(),
+    }
+    return render(request, 'portfolio/apresentação.html', context)
+
+
+def lista_tfcs(request):
+    context = {
+        'tfcs': TFC.objects.all(),
+    }
+    return render(request, 'portfolio/tfcs.html', context)
+
+
+def lista_noticias(request):
+    context = {
+        'noticias': Noticia.objects.all(),
+    }
+    return render(request, 'portfolio/noticias.html', context)

@@ -1,6 +1,126 @@
-{% extends 'portfolio/layout.html' %}
+{% extends 'portfolio/base.html' %}
 
-{% block main %}
-	<h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+{% block title %}
+Sobre Mim
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/sobre.css' %}"/>
+
+<div class="container-masterA">
+    <div class="texto1" style="margin-top: 12vh; margin-bottom: -2vh; text-align: center">Quem sou eu?</div>
+    <section class="perfil">
+        <img class="eu" src="{% static 'portfolio/imagem/eu.png' %}" alt="">
+        <p class="apresentar">Olá, chamo-me Gabriel Deus tenho 19 anos, e de momento sou estudante na Universidade Lusófona.
+            <br>Estou a tirar o curso de Informática de Gestão <a style="color: white; text-decoration: underline" href="{% url 'portfolio:licenciatura' %}" target="_blank">(detalhes sobre o curso)</a>.<br>
+       Considero-me simpático, bom companheiro e ótimo a trabalhar em equipa.</p>
+    </section>
+    <section class="hobbies" style="background-color: #24292d;">
+        <div class="texto1" style="margin-top: -5vh; margin-bottom: 5vh; text-align: center">Línguas</div>
+        {% load static %}
+        <div class="grid1">
+
+            <div>
+                <img class="gymI" src="{% static 'portfolio/imagem/portugues.png' %}" alt="">
+                <p class="gym">Língua Materna</p>
+            </div>
+
+            <div>
+                <img class="menteI" src="{% static 'portfolio/imagem/ingles.svg' %}" alt="">
+                <p class="mente">Fluente</p>
+            </div>
+
+            <div>
+                <img class="conviverI" src="{% static 'portfolio/imagem/espanhol.png' %}" alt="">
+                <p class="conviver">Intermediário</p>
+            </div>
+
+        </div>
+    </section>
+    <section class="hobbies">
+        <div class="texto1" style="margin-top: -5vh; margin-bottom: 5vh; text-align: center">Interesses e Hobbies</div>
+        {% load static %}
+        <div class="grid1">
+
+            <div>
+                <img class="gymI" src="{% static 'portfolio/imagem/gym.png' %}" alt="">
+                <p class="gym">Ginásio</p>
+            </div>
+
+            <div>
+                <img class="menteI" src="{% static 'portfolio/imagem/mente.png' %}" alt="">
+                <p class="mente">Estimular a mente</p>
+            </div>
+
+            <div>
+                <img class="conviverI" src="{% static 'portfolio/imagem/conviver.png' %}" alt="">
+                <p class="conviver">Conviver</p>
+            </div>
+
+        </div>
+    </section>
+    <section class="timeline-section">
+        <div class="texto1" style="margin-top: -5vh; margin-bottom: 5vh">Educação</div>
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">10/2020</div>
+                <div class="timeline-content">
+                    <h3>Iniciei a Universidade</h3>
+                    <p>Curso: Informática de Gestão na <a href="https://www.ulusofona.pt/" target="_blank">ULHT</a></p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">07/2020</div>
+                <div class="timeline-content">
+                    <h3>Terminei o Secundário</h3>
+                    <p><a href="https://www.esgc.pt/portal/index.php" target="_blank">Escola Secundária Gago
+                        Coutinho</a></p>
+                    <p>Curso: Ciências e Tecnologias</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">03/2020</div>
+                <div class="timeline-content">
+                    <h3>Certificado</h3>
+                    <p>Obtive o certificado de Microsoft Specialist na <a
+                            href="https://www.cisco.com/c/en/us/training-events/training-certifications/certifications.html#~policies"
+                            target="_blank">Cisco</a></p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">09/2017</div>
+                <div class="timeline-content">
+                    <h3>Começei o Secundário</h3>
+                    <p><a href="https://www.esgc.pt/portal/index.php" target="_blank">Escola Secundária Gago
+                        Coutinho</a></p>
+                    <p>Curso: Ciências e Tecnologias</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">07/2017</div>
+                <div class="timeline-content">
+                    <h3>Acabei o Ensino Médio</h3>
+                    <p><a href="https://www.fcebi.org/educacao/alverca/colegio-jose-alvaro-vidal" target="_blank">Colégio
+                        José Álvaro Vidal</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="containerComp">
+        <div class="texto1">Competências</div>
+        <ul class="compUl">
+            {% for comp in competencias %}
+            {% if comp.nivel != None %}
+            <li class="compLi" style="width: {{comp.nivel}}%">{{comp.nome}} <small>- {{comp.nivel}}%</small></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

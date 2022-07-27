@@ -1,17 +1,19 @@
 {% extends 'portfolio/base.html' %}
 {% block title %} Apagar post {% endblock %}
 {% block content %}
-<br>
-<h1 style="display: flex; justify-content: center">Apagar: {{blog.titulo}}</h1>
-<hr>
-<div class="container-sm" style="text-align: center">
+
+<div class="corConfig" style="padding-bottom: 5vh">
+  <h1 class="projetosH1">Apagar: {{blog.titulo}}</h1>
+</div>
+
+<div class="container-masterC" style="text-align: center">
     <br>
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
-            <p style="font-size: 1.3em">Tens a certeza que queres apagar este post?</p>
+            <p style="font-size: 1.3em; color: white">Tens a certeza que queres apagar este post?</p>
             <button type="submit" class="btn btn-danger">Apagar</button>
-            <a href="{% url 'portfolio:home' %}" class="btn btn-secondary">Cancelar</a>
+            <a href="{% url 'portfolio:blog' %}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </div>

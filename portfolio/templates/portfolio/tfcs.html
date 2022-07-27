@@ -1,0 +1,44 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+TFCs
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}"/>
+<div class="corConfig">
+  <h1 class="projetosH1" style="margin-bottom: -5vh">TFCS</h1>
+</div>
+{% for tfc in tfcs %}
+<div class="container-masterC" style="margin: 0px; margin-bottom: -30px">
+    <div class="grid">
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" style="object-fit: cover" src="{{tfc.imagem.url}}"/>
+          <div class="card-content">
+            <h1 class="card-header">{{tfc.titulo}}
+                 <a class="link" href={{tfc.relatorio}} target="_blank"><i class="fa fa-file-text-o"> </i></a>
+               - <small style="font-size: 0.65em">{{tfc.ano_realizado}}</small>
+            </h1>
+            <p class="card-text">
+              {{tfc.descricao}}
+            </p>
+            <p class="card-text">Grupo:
+            {{tfc.aluno.nome}}
+            {% if tfc.aluno2 != None%}
+            || {{tfc.aluno2.nome}}
+            {% endif %}
+            </p>
+              <p class="card-text">
+                Orientador: {{tfc.orientador.nome}} <a class="link" href={{projeto.participante2.linkLinkedin}} target="_blank"><i class='fa fa-linkedin-square' style="color: black"> </i></a>
+                <a class="link" href={{tfc.orientador.linkLusofona}} target="_blank"><i class='fa fa-chrome' style="color: black"> </i></a>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endfor %}
+<br>
+{% endblock %}
