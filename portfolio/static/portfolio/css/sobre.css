@@ -213,6 +213,25 @@
 	line-height: 22px;
 }
 
+
+.video {
+    display: flex;
+    width: 50vw;
+    height: auto;
+    margin: 50px auto 0;
+    color: #fff;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    justify-content: center;
+}
+
+.video1 {
+    width: 35vw;
+    height: 35vh;
+    border-radius: 0.9em;
+}
+
+
 @media(max-width: 767px){
 	.timeline-items::before{
 		left: 7px;

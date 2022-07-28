@@ -28,7 +28,7 @@ Login
                 <input type="password" class="form-control" name="password" style="width: 10vw; margin: auto">
             </div>
             <button type="submit" class="btn btn-primary">Submeter</button>
-            <div style="margin-top: 5vh">
+            <div style="margin-top: 5vh; color: white">
                 <div class="cidade"></div>
                 <div class="temp"></div>
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon"/>
@@ -46,6 +46,8 @@ Login
         </form>
     </div>
 </div>
+{% load static %}
+<script src="{% static 'portfolio/js/weather.js' %}"></script>
 <script>
       document.addEventListener("DOMContentLoaded", function() {
         weather.fetchWeather()
