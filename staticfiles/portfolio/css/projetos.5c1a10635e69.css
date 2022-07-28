@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+.container-masterC {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 5vh;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+    font-family: "Poppins", sans-serif;
+}
+
+.projetosH1 {
+    font-weight: bold;
+    color: white;
+    margin: auto;
+    padding-top: 4rem;
+}
+
+.corConfig {
+    margin-top: 5vh;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+  display: grid;
+  width: 60em;
+  grid-gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  align-items: start;
+}
+
+.grid-item {
+  margin-top: 8vh;
+  margin-bottom: 17vh;
+  background-color: #fff;
+  border-radius: 1.7rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.grid-item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+}
+
+.card-content {
+  padding: 3rem;
+}
+
+.card-header {
+  font-size: 1.7em;
+  font-weight: 500;
+  color: #0d0d0d;
+  margin-bottom: 1.5rem;
+}
+
+.card-text {
+  font-size: 1.1em;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+  color: #3d3d3d;
+  margin-bottom: 2.5rem;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #3363ff;
+  background-color: #d8e0fd;
+  border: none;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
+
+.tfcd {
+    display : inline-block;
+    vertical-align : middle;
+    width: 100%;
+    height: 20vh;
+    background-color: #24292d;
+}
+
+.tfcp {
+    padding-top: 1vh;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.tfch {
+    padding-top: 3vh;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 1.6;
+    text-align: center;
+}
+
+.card-btn span {
+  margin-left: 1rem;
+  transition: 0.2s;
+}
+
+.card-btn:hover,
+.card-btn:active {
+  background-color: #c2cffc;
+}
+
+.card-btn:hover span,
+.card-btn:active span {
+  margin-left: 1.5rem;
+}
+
+@media only screen and (max-width: 60em) {
+  .container-masterC {
+    padding: 2rem;
+  }
+
+  .grid {
+    display: block;
+    grid-gap: 3rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
