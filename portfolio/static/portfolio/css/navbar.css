@@ -127,6 +127,14 @@ a{
     justify-content: space-around;
 }
 
+.cidade {
+    color: white;
+}
+
+.temp {
+    color: white;
+}
+
 @media(max-width:991px){
    .nav-toggler{
    	display: block;

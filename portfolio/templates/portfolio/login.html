@@ -7,7 +7,9 @@ Login
 {% block content %}
 
 <div class="corConfig">
-  <h1 class="projetosH1">Faça o seu Login</h1>
+    <h1 class="projetosH1">Faça o seu Login</h1>
+    <div style="margin-left: -2.5vw">
+    </div>
 </div>
 <div class="container-masterC" style="text-align: center;  ">
     <div class="form-group">
@@ -26,6 +28,11 @@ Login
                 <input type="password" class="form-control" name="password" style="width: 10vw; margin: auto">
             </div>
             <button type="submit" class="btn btn-primary">Submeter</button>
+            <div style="margin-top: 5vh">
+                <div class="cidade"></div>
+                <div class="temp"></div>
+                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon"/>
+            </div>
             {% if messages %}
             {% for message in messages %}
             <br>
@@ -39,4 +46,12 @@ Login
         </form>
     </div>
 </div>
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+        weather.fetchWeather()
+      });
+
+
+
+</script>
 {% endblock %}
