@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio',
     'whitenoise.runserver_nostatic',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 LOGIN_URL = 'portfolio:login'
@@ -86,6 +88,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+
 STATIC_URL = '/portfolio/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -97,5 +100,12 @@ STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CLOUDINARY_STORAGE = {
+  'CLOUD_NAME': "ddo3naoar",
+  'API_KEY': "717983459125221",
+  'API_SECRET': "OI53Uj3EZsMhkerKv-z_InopEqc",
+}
 
 
