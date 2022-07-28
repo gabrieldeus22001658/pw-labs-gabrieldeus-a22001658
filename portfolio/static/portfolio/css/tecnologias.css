@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+.container-masterC {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 5vh;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #29323c, #485563);
+    background: linear-gradient(to left, #29323c, #485563);
+    font-family: "Poppins", sans-serif;
+}
+
+.tecnologias {
+    width: 70vw;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tecnologias div {
+    width: 70vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row reverse;
+    background-color: white;
+    border-radius: 1.3em;
+    margin-bottom: 4vh;
+}
+
+.fotoL {
+    width: 10vw;
+    height: 20vh;
+    border-radius: 1.3em;
+}
+
+.tituloT {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.textoT {
+    font-size: 1em;
+    word-wrap: break-word;
+    wid
+}
+
+.paddingP {
+    margin: 1em;
+}
+
+.pStyle {
+    color: white; font-size: 1.4em;
+}
+
+.hStyle {
+    color: white; font-weight: bold; font-size: 2.5em;
+}
+
+
+
+@media only screen and (max-width: 60em) {
+    .tecnologias div {
+        overflow: hidden;
+        font-size: 0.5em;
+        width: 80vw;
+    }
+
+    .pStyle {
+        font-size: 0.9em;
+    }
+
+    .hStyle {
+       font-size: 1.1em;
+    }
+}

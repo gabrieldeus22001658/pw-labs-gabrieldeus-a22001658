@@ -8,30 +8,42 @@ Sobre a Web
 {% load static %}
 <link rel="stylesheet" href="{% static 'portfolio/css/pw.css' %}">
 
-<div class="corConfig">
-    <h1 class="projetosH1">...</h1>
-</div>
-{% for noticia in noticias %}
-<div class="container-masterC" style="margin: 0px; margin-bottom: -30px">
-    <div class="grid">
-        <div class="grid-item">
-            <div class="card">
-                <img class="card-img" src="{{noticia.imagem.url}}"/>
-                <div class="card-content">
-                    <h1 class="card-header">{{noticia.titulo}}
-                    </h1>
-                    <p class="card-text">
-                        {{noticia.descricao}}
-                    </p>
-                    <p class="card-text">Autor:
-                        {{noticia.autor}}
-                    </p>
-                    <a href={{noticia.link}} target="_blank"><button class="card-btn"><b>Leia Mais</b><span>&rarr;</span></button></a>
-                </div>
-            </div>
+<div class="container-masterC" style="margin-top: 5vh; padding-bottom: 8vh">
+    <h1 class="h1S">Tecnologias Existentes</h1>
+    <h2 class="h2S" style="padding-bottom: 6vh;"><a href="{% url 'portfolio:tecnologias' %}">Clique aqui</a> para descobrir informações sobre o tipo de tecnologias
+        utilizadas para desenvolver websites.</h2>
+    <div class="container-Tecnologias">
+        <h1 class="h1S">Sobre este Website</h1>
+        <h2 class="h2S" >Front-end utilizado</h2>
+        <div class="t1">
+            <img class="html1" src="{% static 'portfolio/imagem/html.png' %}" alt="">
+            <img class="css1" src="{% static 'portfolio/imagem/css.png' %}" alt="">
         </div>
+        <hr class="hrS">
+        <h2 class="h2S" >Back-end utilizado</h2>
+        <div class="t1">
+            <img class="javascript1" src="{% static 'portfolio/imagem/javascript.png' %}" alt="">
+            <img class="python1" src="{% static 'portfolio/imagem/python.png' %}" alt="">
+        </div>
+        <hr class="hrS">
+        <h2 class="h2S" >Framework utilizado</h2>
+        <div class="t1">
+            <img class="django1" src="{% static 'portfolio/imagem/django.png' %}" alt="">
+        </div>
+        <hr class="hrS">
+        <h2 class="h2S" ><a href="{% url 'portfolio:diagramas' %}">Clique aqui</a> para descobrir a estrutura do website e como foi
+        estruturada a sua base de dados.</h2>
     </div>
+    <h1 class="h1S">Laboratórios</h1>
+    <h2 class="h2S">Durante a cadeira Programação Web, foram feitos vários laboratórios, <a
+            href="https://a22001658-pw-labs.herokuapp.com/" target="_blank"><b>clique aqui</b></a> para os ver.</h2>
+    <hr class="hrS">
+    <h1 class="h1S">Notícias</h1>
+    <h2 class="h2S">Leia algumas nóticias que eu achei interessante <a href="{% url 'portfolio:noticias' %}"><b>(clique aqui)</b></a>.
+    </h2>
+    <hr class="hrS">
+    <h1 class="h1S">Quizz</h1>
+    <h2 class="h2S">Achas que consegues responder a algumas perguntas sobre Programação Web? Responde a este quizz! <a
+            href="{% url 'portfolio:quizz' %}"><b>(clique aqui)</b></a></h2>
 </div>
-{% endfor %}
-<br>
 {% endblock %}

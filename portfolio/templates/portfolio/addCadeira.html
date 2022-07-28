@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+{% block title %} Nova Cadeira {% endblock %}
+{% block content %}
+<div class="corConfig" style="padding-bottom: 5vh">
+  <h1 class="projetosH1">Adicionar Cadeira</h1>
+</div>
+<div class="container-masterC" style="text-align: center">
+    <div class="form-group" style="color: white; font-size: 1.3em; width: 60vw; margin-left: 20vw">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary">Post</button>
+            <a href="{% url 'portfolio:licenciatura' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

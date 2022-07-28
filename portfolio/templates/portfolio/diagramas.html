@@ -1,0 +1,21 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+Diagramas
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/pw.css' %}">
+
+<div class="container-masterC" style="margin: 0px; margin-bottom: -30px">
+    <div class="diagrama" style="margin-top: 12vh;">
+        <h1 style="font-weight: bold">Estrutura do Site</h1>
+        <img class="diagramaImg" src="{% static 'portfolio/imagem/mapa.png' %}" alt="">
+    </div>
+    <div class="diagrama">
+        <h1 style="font-weight: bold">Diagrama de Entidade e Relação</h1>
+        <img class="diagramaImg" src="{% static 'portfolio/imagem/der.png' %}" alt="">
+    </div>
+</div>
+{% endblock %}

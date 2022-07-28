@@ -9,7 +9,10 @@ Noticias
 <link rel="stylesheet" href="{% static 'portfolio/css/noticias.css' %}">
 
 <div class="corConfig">
-    <h1 class="projetosH1">Noticias</h1>
+    <h1 class="projetosH1">Noticias
+        {% if request.user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'portfolio:addNoticia' %}" role="button">Nova Notícia</a>
+        {% endif %}</h1>
 </div>
 {% for noticia in noticias %}
 <div class="container-masterC" style="margin: 0px; margin-bottom: -30px">
@@ -25,8 +28,14 @@ Noticias
                     </p>
                     <p class="card-text">Autor:
                         {{noticia.autor}}
+                        {% if request.user.is_authenticated %}
+                        <small><a href="{% url 'portfolio:editNoticia' noticia.id %}">Editar</a></small>
+                        <small><a href="{% url 'portfolio:apagarNoticia' noticia.id %}">Apagar</a></small>
+                        {% endif %}
                     </p>
-                    <a href={{noticia.link}} target="_blank"><button class="card-btn"><b>Leia Mais</b><span>&rarr;</span></button></a>
+                    <a href={{noticia.link}} target="_blank">
+                        <button class="card-btn"><b>Leia Mais</b><span>&rarr;</span></button>
+                    </a>
                 </div>
             </div>
         </div>

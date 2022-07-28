@@ -12,9 +12,13 @@
         <div>
             <p class="nome">{{ blog.titulo }}</p>
             <hr>
-            <p class="ano"><b>Autor: </b>{{ blog.autor }} -
+            <p class="ano"><b>Autor: </b>{{ blog.autor }}
+                {% if request.user.is_authenticated %}
+                -
                 <small><a href="{% url 'portfolio:edit_blog' blog.pk %}">(Edit)</a></small>
-                <small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a></small><br/></p>
+                <small><a href="{% url 'portfolio:delete_blog' blog.pk %}">(Delete)</a></small><br/>
+                {% endif %}
+            </p>
             <p class="topicos">{{blog.descricao}}</p>
         </div>
         {% endfor %}

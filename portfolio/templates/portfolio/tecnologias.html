@@ -1,0 +1,62 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+Tecnologias
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/tecnologias.css' %}">
+
+<div class="container-masterC" style="padding-top: 4vh; margin-bottom: -30px">
+    <div class="tecnologias">
+        <h1 class="hStyle">Front-end</h1>
+        <p class="pStyle">O desenvolvedor front-end é responsável por “dar vida” à interface. Trabalha com a parte da aplicação que interage diretamente com o usuário.</p>
+        <div>
+            <img class="fotoL" src="{% static 'portfolio/imagem/html.png' %}" alt="">
+            <p class="paddingP"> <span class="tituloT">HTML5 (Hypertext Markup Language) <a class="link" href="https://pt.wikipedia.org/wiki/HTML5" target="_blank"><i class='fa fa-link' style="color: black"> </i></a></span> <br>
+            <span class="textoT">É uma linguagem de marcação para a World Wide Web e é uma tecnologia
+                chave da Internet, originalmente proposto por Opera Software. É a quinta versão da linguagem HTML.</span></p>
+        </div>
+
+        <div>
+            <img class="fotoL" src="{% static 'portfolio/imagem/react.png' %}" alt="">
+            <p class="paddingP"> <span class="tituloT">React (JavaScript) <a class="link" href="https://pt.wikipedia.org/wiki/React_(JavaScript)" target="_blank"><i class='fa fa-link' style="color: black"> </i></a></span> <br>
+            <span class="textoT">É uma biblioteca JavaScript de código aberto com foco em criar interfaces de
+                usuário (front-end) em páginas web. É mantido pelo Facebook, Instagram, outras empresas e uma comunidade de desenvolvedores individuais.</span></p>
+        </div>
+        <div>
+            <img class="fotoL" src="{% static 'portfolio/imagem/typescript.png' %}" alt="">
+            <p class="paddingP"> <span class="tituloT">TypeScript <a class="link" href="https://pt.wikipedia.org/wiki/TypeScript" target="_blank"><i class='fa fa-link' style="color: black"> </i></a></span> <br>
+            <span class="textoT">É uma linguagem de programação de código aberto desenvolvida pela Microsoft.
+                É um superconjunto sintático estrito de JavaScript e adiciona tipagem estática opcional à linguagem. Tipos fornecem uma maneira de descrever a forma de um objeto,
+                fornecendo melhor documentação e permitindo que o TypeScript valide se seu código está funcionando corretamente.</span></p>
+        </div>
+
+    </div>
+
+    <div class="tecnologias" style="padding-top: 8vh; padding-bottom: 8vh">
+        <h1 class="hStyle" style="margin-bottom: 3vh">Back-end</h1>
+        <p class="pStyle" style="margin-bottom: 5vh">Esta forma de desenvolvimento relaciona-se com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end.</p>
+        <div>
+            <img class="fotoL" src="{% static 'portfolio/imagem/python.png' %}" alt="">
+            <p class="paddingP"> <span class="tituloT">Python <a class="link" href="https://pt.wikipedia.org/wiki/Python" target="_blank"><i class='fa fa-link' style="color: black"> </i></a></span> <br>
+            <span class="textoT">É uma linguagem de programação de alto nível, interpretada de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte.</span></p>
+        </div>
+
+        <div>
+            <img class="fotoL" src="{% static 'portfolio/imagem/ruby.png' %}" alt="">
+            <p class="paddingP"> <span class="tituloT">Ruby <a class="link" href="https://pt.wikipedia.org/wiki/Ruby_(linguagem_de_programa%C3%A7%C3%A3o)" target="_blank"><i class='fa fa-link' style="color: black"> </i></a></span> <br>
+            <span class="textoT">É uma linguagem de programação interpretada multiparadigma, de tipagem dinâmica e forte, com gerenciamento de memória automático, originalmente planejada e desenvolvida no Japão em 1995, por Yukihiro "Matz" Matsumoto, para ser usada como linguagem de script.</span></p>
+        </div>
+
+        <div>
+            <img class="fotoL" src="{% static 'portfolio/imagem/java.png' %}" alt="">
+            <p class="paddingP"> <span class="tituloT">Java <a class="link" href="https://pt.wikipedia.org/wiki/Java_(linguagem_de_programa%C3%A7%C3%A3o)" target="_blank"><i class='fa fa-link' style="color: black"> </i></a></span> <br>
+            <span class="textoT">É uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.</span></p>
+        </div>
+
+    </div>
+</div>
+<br>
+{% endblock %}

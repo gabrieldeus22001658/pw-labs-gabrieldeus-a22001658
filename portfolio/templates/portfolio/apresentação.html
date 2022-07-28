@@ -12,9 +12,12 @@ Sobre Mim
     <div class="texto1" style="margin-top: 12vh; margin-bottom: -2vh; text-align: center">Quem sou eu?</div>
     <section class="perfil">
         <img class="eu" src="{% static 'portfolio/imagem/eu.png' %}" alt="">
-        <p class="apresentar">Olá, chamo-me Gabriel Deus tenho 19 anos, e de momento sou estudante na Universidade Lusófona.
-            <br>Estou a tirar o curso de Informática de Gestão <a style="color: white; text-decoration: underline" href="{% url 'portfolio:licenciatura' %}" target="_blank">(detalhes sobre o curso)</a>.<br>
-       Considero-me simpático, bom companheiro e ótimo a trabalhar em equipa.</p>
+        <p class="apresentar">Olá, chamo-me Gabriel Deus tenho 19 anos, e de momento sou estudante na Universidade
+            Lusófona.
+            <br>Estou a tirar o curso de Informática de Gestão <a style="color: white; text-decoration: underline"
+                                                                  href="{% url 'portfolio:licenciatura' %}"
+                                                                  target="_blank">(detalhes sobre o curso)</a>.<br>
+            Considero-me simpático, bom companheiro e ótimo a trabalhar em equipa.</p>
     </section>
     <section class="hobbies" style="background-color: #24292d;">
         <div class="texto1" style="margin-top: -5vh; margin-bottom: 5vh; text-align: center">Línguas</div>
@@ -113,7 +116,8 @@ Sobre Mim
         </div>
     </section>
     <div class="containerComp">
-        <div class="texto1">Competências</div>
+        <div class="texto1">Competências
+        </div>
         <ul class="compUl">
             {% for comp in competencias %}
             {% if comp.nivel != None %}

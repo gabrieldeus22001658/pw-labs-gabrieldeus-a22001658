@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Blog, PontuacaoQuizz, Pessoa, Projeto, Competencia, Cadeira, TFC, Noticia
-from .forms import BlogForm, EditBlogForm
-from django.urls import reverse_lazy
+from .forms import BlogForm, EditBlogForm, PessoaForm, ProjetoForm, CadeiraForm, TFCForm, NoticiaForm
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
 
@@ -137,3 +139,174 @@ def lista_noticias(request):
         'noticias': Noticia.objects.all(),
     }
     return render(request, 'portfolio/noticias.html', context)
+
+
+def diagramas_view(request):
+    return render(request, 'portfolio/diagramas.html')
+
+
+def pw_view(request):
+    return render(request, 'portfolio/pw.html')
+
+
+def tecnologias_view(request):
+    return render(request, 'portfolio/tecnologias.html')
+
+
+def contacto_view(request):
+    return render(request, 'portfolio/contacto.html')
+
+
+@login_required
+def novo_projetos_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form = ProjetoForm(request.POST or None, request.FILES)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/addProjeto.html', context)
+
+
+@login_required
+def view_editar_projeto(request, projeto_id):
+    projeto = Projeto.objects.get(id=projeto_id)
+    form = ProjetoForm(request.POST or None, instance=projeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'projeto_id': projeto_id}
+    return render(request, 'portfolio/editProjeto.html', context)
+
+
+@login_required
+def view_apagar_projeto(request, projeto_id):
+    projeto = Projeto.objects.get(id=projeto_id)
+    projeto.delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+
+@login_required
+def nova_pessoa_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form_c = PessoaForm(request.POST or None)
+
+    if form_c.is_valid():
+        form_c.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form_c}
+    return render(request, 'portfolio/addPessoa.html', context)
+
+
+@login_required
+def nova_cadeira_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form_c = CadeiraForm(request.POST or None)
+
+    if form_c.is_valid():
+        form_c.save()
+        return HttpResponseRedirect(reverse('portfolio:apresentação'))
+
+    context = {'form': form_c}
+    return render(request, 'portfolio/addCadeira.html', context)
+
+
+@login_required
+def view_editar_cadeira(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    form = CadeiraForm(request.POST or None, instance=cadeira)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:apresentação'))
+
+    context = {'form': form, 'cadeira_id': cadeira_id}
+    return render(request, 'portfolio/editCadeira.html', context)
+
+
+@login_required
+def view_apagar_cadeira(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    cadeira.delete()
+    return HttpResponseRedirect(reverse('portfolio:apresentação'))
+
+
+@login_required
+def novo_tfc_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form_c = TFCForm(request.POST or None, request.FILES)
+
+    if form_c.is_valid():
+        form_c.save()
+        return HttpResponseRedirect(reverse('portfolio:tfcs'))
+
+    context = {'form': form_c}
+    return render(request, 'portfolio/addTFC.html', context)
+
+
+@login_required
+def view_editar_tfc(request, tfc_id):
+    tfc = TFC.objects.get(id=tfc_id)
+    form = TFCForm(request.POST or None, instance=tfc)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:tfcs'))
+
+    context = {'form': form, 'tfc_id': tfc_id}
+    return render(request, 'portfolio/editTfc.html', context)
+
+
+@login_required
+def view_apagar_tfc(request, tfc_id):
+    tfc = TFC.objects.get(id=tfc_id)
+    tfc.delete()
+    return HttpResponseRedirect(reverse('portfolio:tfcs'))
+
+
+@login_required
+def nova_noticia_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    form_c = NoticiaForm(request.POST or None, request.FILES)
+
+    if form_c.is_valid():
+        form_c.save()
+        return HttpResponseRedirect(reverse('portfolio:noticias'))
+
+    context = {'form': form_c}
+    return render(request, 'portfolio/addNoticia.html', context)
+
+
+@login_required
+def view_editar_noticia(request, noticia_id):
+    noticia = Noticia.objects.get(id=noticia_id)
+    form = NoticiaForm(request.POST or None, instance=noticia)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:noticias'))
+
+    context = {'form': form, 'noticia_id': noticia_id}
+    return render(request, 'portfolio/editNoticia.html', context)
+
+
+@login_required
+def view_apagar_noticia(request, noticia_id):
+    noticia = Noticia.objects.get(id=noticia_id)
+    noticia.delete()
+    return HttpResponseRedirect(reverse('portfolio:noticias'))

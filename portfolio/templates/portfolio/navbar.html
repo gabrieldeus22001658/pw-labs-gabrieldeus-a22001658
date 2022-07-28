@@ -16,9 +16,9 @@
                     <li><a href="{% url 'portfolio:home' %}">Home</a></li>
                     <li><a href="{% url 'portfolio:apresentação' %}">Sobre mim</a></li>
                     <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
-                    <li><a href="{% url 'portfolio:home' %}">Sobre a Web</a></li>
+                    <li><a href="{% url 'portfolio:pw' %}">PW</a></li>
                     <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
-                    <li><a href="{% url 'portfolio:home' %}">Contacto</a></li>
+                    <li><a href="{% url 'portfolio:contacto' %}">Contacto</a></li>
                     {% if user.is_authenticated %}
                     <li onclick="location.href = '{% url 'portfolio:logout' %}'"><a href="{% url 'portfolio:logout' %}">Logout</a>
                     </li>

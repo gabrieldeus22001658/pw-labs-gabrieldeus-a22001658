@@ -12,10 +12,23 @@ Licenciatura
     <br>
     <br>
     <div class="container-cadeira">
-        <h1 style="text-align: center; color: white; margin-top: 5vh; position: relative;">Cadeiras de Informática de Gestão</h1>
+        <h1 style="text-align: center; color: white; margin-top: 5vh; position: relative;">Cadeiras de Informática de
+            Gestão
+            {% if request.user.is_authenticated %}
+            <br>
+            <a class="btn btn-primary" href="{% url 'portfolio:addCadeira' %}" role="button">Nova Cadeira</a>
+            <a class="btn btn-primary" href="{% url 'portfolio:addPessoa' %}" role="button">Nova Pessoa</a>
+            {% endif %}
+        </h1>
         {% for cadeira in cadeiras %}
         <div>
-            <p class="nome">{{cadeira.nome}} <a class="link" href={{cadeira.pagina}} target="_blank"><i class='fa fa-link' style="color: black"> </i></a></p>
+            <p class="nome">{{cadeira.nome}} <a class="link" href={{cadeira.pagina}} target="_blank"><i
+                    class='fa fa-link' style="color: black"></i>
+            {% if request.user.is_authenticated %}
+                <small><a href="{% url 'portfolio:editCadeira' cadeira.id %}">Editar</a></small>
+                <small><a href="{% url 'portfolio:apagarCadeira' cadeira.id %}">Apagar</a></small>
+                {% endif %}</a>
+            </p>
             <hr>
             <p class="ano"><b>{{cadeira.ano}}º ano</b>, {{cadeira.semestre}}º Semestre, {{cadeira.ects}} ects</p>
             <p class="topicos">{{cadeira.topicos}}</p>
@@ -24,31 +37,37 @@ Licenciatura
 
                 {% if cadeira.professores.linkLinkedin != None%}
 
-                    <a class="link" href={{cadeira.professores.linkLinkedin}} target="_blank"><i class='fa fa-linkedin-square' style="color: black"> </i></a>
+                <a class="link" href={{cadeira.professores.linkLinkedin}} target="_blank"><i
+                        class='fa fa-linkedin-square' style="color: black"> </i></a>
                 {% endif %}
 
-                <a class="link" href={{cadeira.professores.linkLusofona}} target="_blank"><i class='fa fa-chrome' style="color: black"> </i></a></p>
+                <a class="link" href={{cadeira.professores.linkLusofona}} target="_blank"><i class='fa fa-chrome'
+                                                                                             style="color: black"> </i></a>
+            </p>
 
             {% if cadeira.professorAuxiliar.nome != None%}
 
-                <p>Professor Auxiliar: {{cadeira.professorAuxiliar.nome}}
+            <p>Professor Auxiliar: {{cadeira.professorAuxiliar.nome}}
 
-                    {% if cadeira.professorAuxiliar.linkLinkedin != None%}
+                {% if cadeira.professorAuxiliar.linkLinkedin != None%}
 
-                        <a class="link" href={{cadeira.professorAuxiliar.linkLinkedin}} target="_blank"><i class='fa fa-linkedin-square' style="color: black"> </i></a>
-                    {% endif %}
+                <a class="link" href={{cadeira.professorAuxiliar.linkLinkedin}} target="_blank"><i
+                        class='fa fa-linkedin-square' style="color: black"> </i></a>
+                {% endif %}
 
-                    <a class="link" href={{cadeira.professorAuxiliar.linkLusofona}} target="_blank"><i class='fa fa-chrome' style="color: black"> </i></a></p>
+                <a class="link" href={{cadeira.professorAuxiliar.linkLusofona}} target="_blank"><i class='fa fa-chrome'
+                                                                                                   style="color: black"> </i></a>
+            </p>
 
             {% endif %}
 
             <p class="ano_letivo">{{cadeira.ano_letivo}}</p>
             {% for i in range %}
-                {% if i <= cadeira.ranking %}
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                {% else %}
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                {% endif %}
+            {% if i <= cadeira.ranking %}
+            <i class="fa fa-star" aria-hidden="true"></i>
+            {% else %}
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            {% endif %}
             {% endfor %}
         </div>
         {% endfor %}

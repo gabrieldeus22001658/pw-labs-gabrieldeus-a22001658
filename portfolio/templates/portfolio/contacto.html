@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+Contacto
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/css/pw.css' %}">
+<div class="corConfig">
+  <h1 class="projetosH1" style="margin-bottom: -20vh; font-size: 3em">Contactos</h1>
+</div>
+<div class="container-masterCont" style="margin: 0px; margin-bottom: -30px">
+    <div class="social">
+        <p class="hover1"><a href="https://twitter.com/Cristiano" target="_blank"><i style="color: white"
+                                                                      class="fa fa-twitter"></i></a></p>
+        <p class="hover2"><a href="https://www.linkedin.com/in/gabrieldeus02/" target="_blank"><i style="color: white"
+                                                                                   class="fa fa-linkedin"></i></a></p>
+        <p class="hover3"><a href="https://github.com/gabrieldeus22001658" target="_blank"><i style="color: white"
+                                                                               class="fa fa-github"></i></a>
+        </p>
+    </div>
+</div>
+{% endblock %}
